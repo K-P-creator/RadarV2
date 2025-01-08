@@ -29,5 +29,11 @@
     <ClInclude Include="Simulation.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Car.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

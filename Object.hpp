@@ -1,9 +1,10 @@
 #pragma once
 
 #include <vector>
+#include "SFML/Graphics.hpp"
 
 class Object {
-private:
+protected:
     float location_x; // x-coordinate of the location
     float location_y; // y-coordinate of the location
     float direction_x; // x-component of the direction
@@ -42,4 +43,6 @@ public:
         location_x += direction_x;
         location_y += direction_y;
     }
+
+    virtual void draw(sf::RenderWindow& window){}
 };

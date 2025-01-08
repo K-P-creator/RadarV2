@@ -23,7 +23,9 @@
     <ClCompile Include="Radar.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Car.hpp" />
     <ClInclude Include="Object.hpp" />
+    <ClInclude Include="Plane.hpp" />
     <ClInclude Include="Simulation.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

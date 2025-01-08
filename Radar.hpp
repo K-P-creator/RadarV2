@@ -44,9 +44,9 @@ public:
     }
 
     //Method to check object within bounds
-    bool checkObjectRadar(const Object& obj) const {
-        float distSq = ((obj.getLocationX() - location_x) * (obj.getLocationX() - location_x)) +
-            ((obj.getLocationY() - location_y) * (obj.getLocationY() - location_y));
+    bool checkObjectRadar(const Object* obj) const {
+        float distSq = ((obj->getLocationX() - location_x) * (obj->getLocationX() - location_x)) +
+            ((obj->getLocationY() - location_y) * (obj->getLocationY() - location_y));
 
         return distSq <= (radius * radius);
     }

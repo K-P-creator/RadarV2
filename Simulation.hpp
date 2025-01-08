@@ -5,6 +5,7 @@
 
 #include "Object.hpp"
 #include "Radar.hpp"
+#include "Car.hpp"
 
 #include <iostream>
 
@@ -16,15 +17,17 @@ class Simulation {
 private:
     int y; // Height of the simulation area
     int x;  // Width of the simulation area
-    std::vector<Object> objects; // List of objects in the simulation
-    std::vector<Radar> radars;   // List of radars in the simulation
+    std::vector<Object*> objects; // List of objects in the simulation
+                                  //use pointer to avoid object slicing
+    std::vector<Radar> radars;    // List of radars in the simulation
+
 
 public:
     // Constructor
     Simulation(int x, int y) : x(x), y(y) {}
 
     // Method to add an object
-    void addObject(const Object& obj) {
+    void addObject(Object* obj) {
         objects.push_back(obj);
     }
 
@@ -69,13 +72,16 @@ public:
             window.clear(sf::Color::Black);
 
             //Initialize a rectangle to draw as objects
-            sf::RectangleShape point(sf::Vector2f(5, 5));
-            point.setFillColor(sf::Color::Red);
+            // 
+            // old draw mechanic
+            //sf::RectangleShape point(sf::Vector2f(5, 5));
+            //point.setFillColor(sf::Color::Red);
+            
+            
 
-            for (const auto& obj : objects) {
+            for (auto obj : objects) {
                 if (this->checkObject(obj)) {
-                    point.setPosition(obj.getLocationX(), obj.getLocationY()); // Set the position of the point
-                    window.draw(point);
+                    obj->draw(window);
                 }
             }
 
@@ -97,7 +103,7 @@ public:
     }
 
     //Method to check an object agains all radars
-    bool checkObject(const Object& obj) {
+    bool checkObject(const Object* obj) {
         for (const Radar& radar : radars) {
             if (radar.checkObjectRadar(obj)) {
                 return true; // Object detected
@@ -110,7 +116,7 @@ public:
     //Method to update all object positions
     void updateObjects() {
         for (auto& obj : objects) {
-            obj.updatePosition();
+            obj->updatePosition();
         }
     }
 };

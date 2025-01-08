@@ -22,9 +22,6 @@ public:
         if (!texture.loadFromFile("resources/Car_Sprite.png")) {
             std::cout << "No Car texture found\n";
         }
-        else {
-            std::cout << "Car texture loaded succesfully\n";
-        }
         sprite.setTexture(texture);
     }
 

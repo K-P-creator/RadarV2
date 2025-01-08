@@ -7,8 +7,6 @@
 #include "Radar.hpp"
 #include "Car.hpp"
 
-#include <iostream>
-
 #include <vector>
 
 #include <windows.h>
@@ -52,8 +50,6 @@ public:
 
     //Method to display simulation window
     void runSimulation() {
-        std::cout << "begin simulation\n";
-        std::cout << "Number of objects: " << objects.size() << std::endl;
         // Create the window
         sf::RenderWindow window(sf::VideoMode(x, y), "Radar Simulation V2.0");
 
@@ -98,7 +94,7 @@ public:
             // Display the window's contents
             window.display();
             this->updateObjects();
-            Sleep(500);
+
         }
     }
 

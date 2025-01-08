@@ -23,9 +23,6 @@ public:
         if (!texture.loadFromFile("resources/Plane_Sprite.png")) {
             std::cout << "No Plane texture found\n";
         }
-        else {
-            std::cout << "Plane texture loaded succesfully\n";
-        }
         sprite.setTexture(texture);
     }
 
